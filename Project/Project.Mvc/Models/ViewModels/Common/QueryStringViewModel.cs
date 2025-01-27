@@ -8,6 +8,6 @@ namespace Project.Mvc.Models.ViewModels.Common
 
         public int PageSize { get; set; } = 5;
 
-        public Ordering ordering { get; set; }
+        public Ordering ordering { get; set; } = Ordering.IsActive;
     }
 }

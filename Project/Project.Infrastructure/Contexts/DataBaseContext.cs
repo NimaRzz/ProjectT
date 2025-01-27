@@ -77,7 +77,7 @@ namespace Project.Infrastructure.Contexts
 
         private void ApplyQueryFilter(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<FiscalYear>().HasQueryFilter(p => !p.IsRemoved);
+           
         }
 
         private void SeedData(ModelBuilder modelBuilder)

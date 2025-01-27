@@ -5,7 +5,7 @@
 	int pageNumber = 1;
 	int pageSize = 5;
 	int totalPages = Model.Data.TotalPages;
-	Ordering ordering = Ordering.MostRecent;
+	Ordering ordering = Ordering.IsActive;
 
 	int.TryParse(Context.Request.Query["Page"], out pageNumber);
 	int.TryParse(Context.Request.Query["PageSize"], out pageSize);
@@ -41,16 +41,18 @@
 
 	<input id="SaveAddBtn" type="button" value="ذخیره" class="btn btn-success" onclick="Add()" />
 	<input id="SaveEditBtn" type="hidden" value="ذخیره" class="btn btn-success" onclick="Edit()" />
+	<input id="UpdateBtn" type="hidden" value="ویرایش" class="btn btn-primary" onclick="SelectEdit()" />
 	<input id="DeleteBtn" type="hidden" value="حذف" class="btn btn-danger" onclick="Delete()" />
+
 	<br />
 </div>
 
 <div class="container" style="margin-top:5px; margin-bottom:5px;">
 	<ul class="nav sort-tab-options" role="tablist">
 	
-		<li class="nav-item">فیلتر کردن بر اساس</li>
-		<li class="nav-item"><a href="@Url.Action("Index", new{ Page = (pageNumber == 0 ? 1 : pageNumber), PageSize = (pageSize == 0 ? 5 : pageSize), ordering = Ordering.MostRecent})" class="nav-link active" aria-controls="MostRecent" aria-selected="true" role="tab" style="display:inline">جدید ترین</a></li>
-		<li class="nav-item"><a href="@Url.Action("Index", new{ Page = (pageNumber == 0 ? 1 : pageNumber), PageSize = (pageSize == 0 ? 5 : pageSize), ordering = Ordering.Name})" class="nav-link" aria-controls="Name" aria-selected="false" role="tab" style="display:inline">نام</a></li>
+		<li class="nav-item">فیلتر کردن بر اساس:</li>
+		<li class="nav-item"><a href="@Url.Action("Index", new{ Page = (pageNumber == 0 ? 1 : pageNumber), PageSize = (pageSize == 0 ? 5 : pageSize), ordering = Ordering.IsActive})" class="nav-link active" aria-controls="IsActive" aria-selected="true" role="tab" style="display:inline">حذف نشده ها</a></li>
+		<li class="nav-item"><a href="@Url.Action("Index", new{ Page = (pageNumber == 0 ? 1 : pageNumber), PageSize = (pageSize == 0 ? 5 : pageSize), ordering = Ordering.IsRemoved})" class="nav-link" aria-controls="IsRemoved" aria-selected="false" role="tab" style="display:inline">حذف شده ها</a></li>
 
 	</ul>
 </div>
@@ -63,7 +65,7 @@
 			<th>نام دوره</th>
 			<th>تاریخ شروع</th>
 			<th>تاریخ پایان</th>
-			<th></th>
+			<th>حذف شده</th>
 		</tr>
 
 		@if (Model.Data.Items != null)
@@ -76,7 +78,14 @@
 					<td>@item.StartDate.ToString("yyyy/MM/dd")</td>
 					<td>@item.EndDate.ToString("yyyy/MM/dd")</td>
 					<td>
-						<button id="UpdateBtn" class="btn btn-primary" onclick="SelectEdit('@item.Name', '@item.StartDate.ToString("yyyy/MM/dd")', '@item.EndDate.ToString("yyyy/MM/dd")', '@item.Id')">ویرایش</button>
+						@if (item.IsRemoved == true)
+						{
+				            <span style="color:green">✔️</span>
+						}
+						else
+						{
+							<span style="color:red">✘</span>
+						}
 					</td>
 			    </tr>
 		    }
@@ -85,7 +94,7 @@
 	    {
 	  	    <tr>
 				    
-				  <td colspan="3" class="text-center">هیچ داده ای در دیتابیس وجود ندارد</td>
+				  <td colspan="5" class="text-center">هیچ داده ای در دیتابیس وجود ندارد</td>
 			
 		    </tr>
 	    }
@@ -96,14 +105,14 @@
 
 		@if (pageNumber > 1)
 		{
-			<a href="@Url.Action("Index", new{ Page = (pageNumber == 0 ? 1 : pageNumber - 1), PageSize = (pageSize == 0 ? 5 : pageSize), ordering = ordering})" class="btn btn-primary">قبلی</a>
+			<a href="@Url.Action("Index", new{ Page = (pageNumber == 0 ? 1 : pageNumber - 1), PageSize = (pageSize == 0 ? 5 : pageSize), ordering = (ordering == null ? Ordering.IsActive : ordering)})" class="btn btn-primary">قبلی</a>
 		}
 		
 		<span>صحفه @(pageNumber == 0 ? 1 : pageNumber) از @totalPages</span>
 
 		@if (pageNumber < totalPages && totalPages != 1)
 		{
-			<a href="@Url.Action("Index", new{ Page = (pageNumber == 0 ? 2 : pageNumber + 1), PageSize =(pageSize == 0 ? 5 : pageSize),  ordering = ordering})" class="btn btn-primary">بعدی</a>
+			<a href="@Url.Action("Index", new{ Page = (pageNumber == 0 ? 2 : pageNumber + 1), PageSize =(pageSize == 0 ? 5 : pageSize),  ordering = (ordering == null ? Ordering.IsActive : ordering)})" class="btn btn-primary">بعدی</a>
 		}
 	
 	
@@ -122,6 +131,7 @@
 		var ElementDeleteBtn = $("#DeleteBtn");
 		var ElementSaveAddBtn = $("#SaveAddBtn");
 		var ElementSaveEditBtn = $("#SaveEditBtn");
+		var ElementUpdateBtn = $("#UpdateBtn");
 		var ElementIdName = $("#Name");
 		var ElementIdStartDate = $("#StartDate");
 		var ElementIdEndDate = $("#EndDate");
@@ -181,7 +191,7 @@
 					},
 					error: function(xhr, status, error)
 					       {
-							   
+						       alert("خطا رخ داد! لطفا یک بار دیگر با دقت فیلد هارا کامل بکنید ");
 						   }
 				});
 				}
@@ -199,16 +209,12 @@
 			ElementIdName.prop('readonly', true);
 			ElementIdStartDate.prop('disabled', true);
 			ElementIdEndDate.prop('disabled', true);
+			ElementUpdateBtn.prop('type', 'button');
 		}
 
-		function SelectEdit(Name, StartDate, EndDate, Id)
+		function SelectEdit()
 		{
 			
-			ElementIdName.val(Name);
-			ElementIdStartDate.val(StartDate);
-			ElementIdEndDate.val(EndDate);
-			ElementIdId.val(Id);
-
 			ElementIdName.prop('readonly', false);
 			ElementIdStartDate.prop('disabled', false);
 			ElementIdEndDate.prop('disabled', false);
@@ -278,7 +284,7 @@
 						},
 						error: function(xhr, status, error)
 							   {
-		
+							       alert("خطا رخ داد! لطفا یک بار دیگر با دقت فیلد هارا کامل بکنید ");
 							   }
 					});
 					}
@@ -370,6 +376,36 @@
 		highlightSelectedDay:true,
 
 	});
+
+	$(document).ready(function(){
+		$('input[type="text"]').on('keydown', function(e){
+		   	if(e.key === 'Enter')
+			{
+                e.preventDefault();
+				
+				var inputs = $('input[type="text"]');
+				var currentIndex = inputs.index(this);
+
+				if (currentIndex < inputs.length - 1)
+				{
+                    inputs.eq(currentIndex + 1).focus();
+				}
+				else
+				{
+					if (ElementSaveAddBtn.is(':visible'))
+					{
+                      Add();
+					}
+					else if (ElementSaveEditBtn.is(':visible'))
+					{
+						Edit();
+					}
+				}
+			}
+			
+		});
+	});
+
 
 	</script>
 

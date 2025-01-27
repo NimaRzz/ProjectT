@@ -1,12 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Nima\\Desktop\\Project\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{7C56449C-119A-4D03-9A1E-53256BAF4F9D}|Project.Mvc\\Project.Mvc.csproj|c:\\users\\nima\\desktop\\project\\project.mvc\\views\\fiscalyear\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7C56449C-119A-4D03-9A1E-53256BAF4F9D}|Project.Mvc\\Project.Mvc.csproj|solutionrelative:project.mvc\\views\\fiscalyear\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 389,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -27,19 +22,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Nima\\Desktop\\Project\\Project.Mvc\\Views\\FiscalYear\\Index.cshtml",
-              "RelativeDocumentMoniker": "Project.Mvc\\Views\\FiscalYear\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Nima\\Desktop\\Project\\Project.Mvc\\Views\\FiscalYear\\Index.cshtml",
-              "RelativeToolTip": "Project.Mvc\\Views\\FiscalYear\\Index.cshtml",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAqwF4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-27T18:37:49.952Z",
-              "EditorCaption": ""
             }
           ]
         }

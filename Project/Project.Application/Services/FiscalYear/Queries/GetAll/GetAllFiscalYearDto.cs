@@ -15,5 +15,7 @@ namespace Project.Application.Services.FiscalYear.Queries.GetAll
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }
+
+        public bool IsRemoved { get; set; }
     }
 }

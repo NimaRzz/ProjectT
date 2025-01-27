@@ -15,7 +15,7 @@ namespace Project.Application.Interfaces.FiscalYear
 
     public enum Ordering
     {
-        MostRecent = 0,
-        Name = 1
+        IsRemoved = 0,
+        IsActive = 1
     }
 }

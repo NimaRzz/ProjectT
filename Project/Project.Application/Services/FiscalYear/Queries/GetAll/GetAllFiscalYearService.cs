@@ -29,20 +29,20 @@ namespace Project.Application.Services.FiscalYear.Queries.GetAll
            
             int totalPages = 0;
 
-            var fiscalYearQuery = getAllFiscalYear.Data.AsQueryable();
+            var fiscalYearQuery = getAllFiscalYear.Data.OrderBy(p => p.StartDate).AsQueryable();
 
             switch (request.ordering)
             {
-                case Ordering.MostRecent:
-                     fiscalYearQuery = fiscalYearQuery.OrderByDescending(p => p.StartDate).AsQueryable();
+                case Ordering.IsRemoved:
+                     fiscalYearQuery = fiscalYearQuery.Where(p => p.IsRemoved == true).AsQueryable();
                     break;
 
-                case Ordering.Name:
-                     fiscalYearQuery = fiscalYearQuery.OrderBy(p => p.Name).AsQueryable();
+                case Ordering.IsActive:
+                    fiscalYearQuery = fiscalYearQuery.Where(p => p.IsRemoved == false).AsQueryable();
                     break;
 
                 default:
-                    fiscalYearQuery = fiscalYearQuery.OrderByDescending(p => p.StartDate).AsQueryable();
+                    fiscalYearQuery = fiscalYearQuery.Where(p => p.IsRemoved == false).AsQueryable();
                     break;
             }
 
@@ -67,7 +67,8 @@ namespace Project.Application.Services.FiscalYear.Queries.GetAll
                 Id = p.Id,
                 Name = p.Name,
                 StartDate = ConvertDate.ConvertGregorianToPersian(p.StartDate),
-                EndDate = ConvertDate.ConvertGregorianToPersian(p.EndDate)
+                EndDate = ConvertDate.ConvertGregorianToPersian(p.EndDate),
+                IsRemoved = p.IsRemoved
            }).ToList();
 
             return new ResultDto<ResultGetAllFiscalYearDto>
