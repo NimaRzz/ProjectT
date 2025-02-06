@@ -862,7 +862,7 @@
       },
       "Project.Application/1.0.0": {
         "dependencies": {
-          "Project.Domain": "1.0.0"
+          "Project.Core": "1.0.0"
         },
         "runtime": {
           "Project.Application.dll": {
@@ -871,9 +871,9 @@
           }
         }
       },
-      "Project.Domain/1.0.0": {
+      "Project.Core/1.0.0": {
         "runtime": {
-          "Project.Domain.dll": {
+          "Project.Core.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -883,7 +883,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "8.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0",
-          "Project.Domain": "1.0.0"
+          "Project.Core": "1.0.0"
         },
         "runtime": {
           "Project.Infrastructure.dll": {
@@ -1437,7 +1437,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Project.Domain/1.0.0": {
+    "Project.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

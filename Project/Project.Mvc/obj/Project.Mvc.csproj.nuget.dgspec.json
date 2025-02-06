@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nima\\Desktop\\Project\\Project.Mvc\\Project.Mvc.csproj": {}
+    "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Mvc\\Project.Mvc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nima\\Desktop\\Project\\Project.Application\\Project.Application.csproj": {
+    "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Application\\Project.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nima\\Desktop\\Project\\Project.Application\\Project.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Application\\Project.Application.csproj",
         "projectName": "Project.Application",
-        "projectPath": "C:\\Users\\Nima\\Desktop\\Project\\Project.Application\\Project.Application.csproj",
+        "projectPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Application\\Project.Application.csproj",
         "packagesPath": "C:\\Users\\Nima\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nima\\Desktop\\Project\\Project.Application\\obj\\",
+        "outputPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Nima\\Desktop\\Project\\Project.Domain\\Project.Domain.csproj": {
-                "projectPath": "C:\\Users\\Nima\\Desktop\\Project\\Project.Domain\\Project.Domain.csproj"
+              "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Core\\Project.Core.csproj": {
+                "projectPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Core\\Project.Core.csproj"
               }
             }
           }
@@ -73,14 +73,14 @@
         }
       }
     },
-    "C:\\Users\\Nima\\Desktop\\Project\\Project.Domain\\Project.Domain.csproj": {
+    "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Core\\Project.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nima\\Desktop\\Project\\Project.Domain\\Project.Domain.csproj",
-        "projectName": "Project.Domain",
-        "projectPath": "C:\\Users\\Nima\\Desktop\\Project\\Project.Domain\\Project.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Core\\Project.Core.csproj",
+        "projectName": "Project.Core",
+        "projectPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Core\\Project.Core.csproj",
         "packagesPath": "C:\\Users\\Nima\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nima\\Desktop\\Project\\Project.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -138,14 +138,14 @@
         }
       }
     },
-    "C:\\Users\\Nima\\Desktop\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj": {
+    "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nima\\Desktop\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj",
         "projectName": "Project.Infrastructure",
-        "projectPath": "C:\\Users\\Nima\\Desktop\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Nima\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nima\\Desktop\\Project\\Project.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -166,8 +166,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Nima\\Desktop\\Project\\Project.Domain\\Project.Domain.csproj": {
-                "projectPath": "C:\\Users\\Nima\\Desktop\\Project\\Project.Domain\\Project.Domain.csproj"
+              "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Core\\Project.Core.csproj": {
+                "projectPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Core\\Project.Core.csproj"
               }
             }
           }
@@ -229,14 +229,14 @@
         }
       }
     },
-    "C:\\Users\\Nima\\Desktop\\Project\\Project.Mvc\\Project.Mvc.csproj": {
+    "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Mvc\\Project.Mvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nima\\Desktop\\Project\\Project.Mvc\\Project.Mvc.csproj",
+        "projectUniqueName": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Mvc\\Project.Mvc.csproj",
         "projectName": "Project.Mvc",
-        "projectPath": "C:\\Users\\Nima\\Desktop\\Project\\Project.Mvc\\Project.Mvc.csproj",
+        "projectPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Mvc\\Project.Mvc.csproj",
         "packagesPath": "C:\\Users\\Nima\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nima\\Desktop\\Project\\Project.Mvc\\obj\\",
+        "outputPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Mvc\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -257,11 +257,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Nima\\Desktop\\Project\\Project.Application\\Project.Application.csproj": {
-                "projectPath": "C:\\Users\\Nima\\Desktop\\Project\\Project.Application\\Project.Application.csproj"
+              "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Application\\Project.Application.csproj": {
+                "projectPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Application\\Project.Application.csproj"
               },
-              "C:\\Users\\Nima\\Desktop\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Nima\\Desktop\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj"
+              "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj"
               }
             }
           }

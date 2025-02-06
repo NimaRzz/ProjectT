@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Project.Application.Services.FiscalYear.Commands.Add;
-using Project.Domain.Common.Dto;
+using Project.Core.Common.Dto;
 
 
 namespace Project.Application.Interfaces.FiscalYear

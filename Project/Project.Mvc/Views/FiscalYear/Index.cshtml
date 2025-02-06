@@ -1,5 +1,5 @@
 ﻿@using Project.Application.Interfaces.FiscalYear
-@using Project.Domain.Common.Dto
+@using Project.Core.Common.Dto
 @model ResultDto<Project.Application.Services.FiscalYear.Queries.GetAll.ResultGetAllFiscalYearDto>
 @{
 	int pageNumber = 1;
@@ -21,6 +21,7 @@
 	<div class="form-group col-4">
 		<lable for="Name">نام دوره:</lable>
 		<input id="Name" type="text" class="form-control" required/>
+		<span class="text-danger" id="NameInputSpan"></span>
 	</div>
 
 	<br />
@@ -28,6 +29,7 @@
 	<div class="form-group col-4">
 		<lable for="StartDate">تاریخ شروع:</lable>
 		<input id="StartDate" type="text" class="form-control" required/>
+		<span class="text-danger" id="StartDateInputSpan"></span>
 	</div>
 
 	<br />
@@ -35,6 +37,7 @@
 	<div class="form-group col-4">
 		<lable for="EndDate">تاریخ پایان:</lable>
 		<input id="EndDate" type="text" class="form-control" required />
+		<span class="text-danger" id="EndDateInputSpan"></span>
 	</div>
 
 	<br/>
@@ -132,71 +135,126 @@
 		var ElementSaveAddBtn = $("#SaveAddBtn");
 		var ElementSaveEditBtn = $("#SaveEditBtn");
 		var ElementUpdateBtn = $("#UpdateBtn");
+		
 		var ElementIdName = $("#Name");
+		var ElementIdNameInputSpan = $("#NameInputSpan")
+
 		var ElementIdStartDate = $("#StartDate");
+		var ElementIdStartDateInputSpan = $("#StartDateInputSpan");
+		
 		var ElementIdEndDate = $("#EndDate");
+		var ElementIdEndDateInputSpan = $("#EndDateInputSpan");
+		
 		var ElementIdId = $("#Id");
 
 		function Add()
 		{
-
-			swal.fire
-			({
-			 title:'افزودن',
-			 text : 'ایا از افزودن مطمـءن هستید؟',
-			 icon: 'info',
-			 showCancelButton: true,
-			 cancelButtonColor: '#fc0000',
-			 confirmButtonColor: '#039e00',
-			 cancelButtonText:'خیر',
-			 confirmButtonText:'بله، افزودن انجام شود'
-			}).then((result) => {
-				if (result.value)
+			if (ElementIdName.val().trim() === "" || ElementIdStartDate.val().trim() === "" || ElementIdEndDate.val().trim() === "")
+			{
+				if (ElementIdName.val().trim() === "")
 				{
-				    var data = new FormData();
-				
-					data.append('Name', ElementIdName.val());
-					data.append('StartDate', ElementIdStartDate.val());
-					data.append('EndDate', ElementIdEndDate.val());
-				    
-					$.ajax({
-					type:'POST',
-					url : '/fiscalyear/Add',
-					contentType: false,
-					processData: false,
-					data:data,
-					success: function(data)
-					{
-						if(data.isSuccess == true)
-						{
-							swal.fire
-							(
-								 'موفق',
-								 data.message,
-								 'success'
-							).then(function(isConfirm)
-							{
-								window.location.replace("/fiscalyear");
-							});
-						}
-						else
-						{
-							swal.fire
-							(
-								 'هشدار',
-								 data.message,
-								 'warning'
-							);
-						}
-					},
-					error: function(xhr, status, error)
-					       {
-						       alert("خطا رخ داد! لطفا یک بار دیگر با دقت فیلد هارا کامل بکنید ");
-						   }
-				});
+
+					ElementIdNameInputSpan.text("نام را وارد کنید");
+
 				}
-			});
-		}
+				else
+				{
+						
+					ElementIdNameInputSpan.text("");
+
+				}
+
+				if (ElementIdStartDate.val().trim() === "")
+				{
+
+					ElementIdStartDateInputSpan.text("تاریخ شروع را وارد کنید");
+
+				}
+				else
+				{
+
+					ElementIdStartDateInputSpan.text("");
+
+				}
+
+
+				if (ElementIdEndDate.val().trim() === "")
+				{
+
+					ElementIdEndDateInputSpan.text("تاریخ پایان را وارد کنید");
+
+				}
+				else
+				{
+					
+					ElementIdEndDateInputSpan.text("");
+
+				}
+			}
+			else
+			{
+			    ElementIdNameInputSpan.text("");
+		        ElementIdStartDateInputSpan.text("");
+				ElementIdEndDateInputSpan.text("");
+			    
+				swal.fire
+			    ({
+			     title:'افزودن',
+			     text : 'ایا از افزودن مطمـءن هستید؟',
+			     icon: 'info',
+			     showCancelButton: true,
+			     cancelButtonColor: '#fc0000',
+			     confirmButtonColor: '#039e00',
+			     cancelButtonText:'خیر',
+			     confirmButtonText:'بله، افزودن انجام شود'
+			    }).then((result) => {
+			   	    if (result.value)
+				    {
+				        var data = new FormData();
+				
+					    data.append('Name', ElementIdName.val());
+					    data.append('StartDate', ElementIdStartDate.val());
+					    data.append('EndDate', ElementIdEndDate.val());
+				    
+					    $.ajax({
+					    type:'POST',
+					    url : '/fiscalyear/Add',
+					    contentType: false,
+					    processData: false,
+					    data:data,
+					    success: function(data)
+					    {
+						    if(data.isSuccess == true)
+						    {
+							    swal.fire
+							    (
+								     'موفق',
+								     data.message,
+								     'success'
+							    ).then(function(isConfirm)
+							    {
+								    window.location.replace("/fiscalyear");
+							    });
+						    }
+						    else
+						    {
+							    swal.fire
+							    (
+								     'هشدار',
+								     data.message,
+								     'warning'
+							    );
+						    }
+					    },
+					    error: function(xhr, status, error)
+					           {
+						           alert("خطا رخ داد! لطفا یک بار دیگر با دقت فیلد هارا کامل بکنید ");
+						       }
+				     });
+				    }
+			    });
+				}
+		    }
 
 		function SelectRow(Name, StartDate, EndDate, Id)
 		{
@@ -210,6 +268,8 @@
 			ElementIdStartDate.prop('disabled', true);
 			ElementIdEndDate.prop('disabled', true);
 			ElementUpdateBtn.prop('type', 'button');
+			ElementSaveAddBtn.prop('type', 'hidden');
+
 		}
 
 		function SelectEdit()
@@ -218,7 +278,6 @@
 			ElementIdName.prop('readonly', false);
 			ElementIdStartDate.prop('disabled', false);
 			ElementIdEndDate.prop('disabled', false);
-			ElementSaveAddBtn.prop('type', 'hidden');
 			ElementDeleteBtn.prop('type', 'button');
 			ElementSaveEditBtn.prop('type', 'button');
 
@@ -226,78 +285,126 @@
 
 		function Edit()
 	    {
-			
-				swal.fire
-				({
-				 title:'ویرایش',
-				 text : 'ایا از ویرایش مطمـءن هستید؟',
-				 icon: 'info',
-				 showCancelButton: true,
-				 cancelButtonColor: '#fc0000',
-				 confirmButtonColor: '#039e00',
-				 cancelButtonText:'خیر',
-				 confirmButtonText:'بله، ویرایش انجام شود'
-				}).then((result) => {
-					if (result.value)
+				if (ElementIdName.val().trim() === "" || ElementIdStartDate.val().trim() === "" || ElementIdEndDate.val().trim() === "")
+				{
+					if (ElementIdName.val().trim() === "")
 					{
-						var data = new FormData();
 
-						data.append('Name', ElementIdName.val());
-						data.append('StartDate', ElementIdStartDate.val());
-						data.append('EndDate', ElementIdEndDate.val());
-						data.append('Id', ElementIdId.val());
+						ElementIdNameInputSpan.text("نام را وارد کنید");
 
-						$.ajax({
-						type:'POST',
-						url : '/fiscalyear/Update',
-						contentType: false,
-						processData: false,
-						data:data,
-						success: function(data)
-						{
-							if(data.isSuccess == true)
-							{
-								swal.fire
-								(
-									 'موفق',
-									 data.message,
-									 'success'
-								).then(function(isConfirm)
-								{
-								   	window.location.replace("/fiscalyear");
-
-					                
-					                ElementSaveAddBtn.prop('type', 'button');
-									ElementDeleteBtn.prop('type', 'hidden');
-									ElementSaveEditBtn.prop('type', 'hidden');
-								});
-							}
-							else
-							{
-								swal.fire
-								(
-									 'هشدار',
-									 data.message,
-									 'warning'
-								);
-							}
-						},
-						error: function(xhr, status, error)
-							   {
-							       alert("خطا رخ داد! لطفا یک بار دیگر با دقت فیلد هارا کامل بکنید ");
-							   }
-					});
 					}
 					else
 					{
-					    window.location.replace("/fiscalyear");
 
-					    ElementSaveAddBtn.prop('type', 'button');
-					    ElementDeleteBtn.prop('type', 'hidden');
-						ElementSaveEditBtn.prop('type', 'hidden');
+						ElementIdNameInputSpan.text("");
+
 					}
-				});
-	    }
+
+					if (ElementIdStartDate.val().trim() === "")
+					{
+
+						ElementIdStartDateInputSpan.text("تاریخ شروع را وارد کنید");
+
+					}
+					else
+					{
+
+						ElementIdStartDateInputSpan.text("");
+
+					}
+
+
+					if (ElementIdEndDate.val().trim() === "")
+					{
+
+						ElementIdEndDateInputSpan.text("تاریخ پایان را وارد کنید");
+
+					}
+					else
+					{
+
+						ElementIdEndDateInputSpan.text("");
+
+					}
+				}
+				else
+				{
+					ElementIdNameInputSpan.text("");
+					ElementIdStartDateInputSpan.text("");
+					ElementIdEndDateInputSpan.text("");
+
+				    swal.fire
+				    ({
+				     title:'ویرایش',
+				     text : 'ایا از ویرایش مطمـءن هستید؟',
+				     icon: 'info',
+				     showCancelButton: true,
+				     cancelButtonColor: '#fc0000',
+				     confirmButtonColor: '#039e00',
+				     cancelButtonText:'خیر',
+				     confirmButtonText:'بله، ویرایش انجام شود'
+				    }).then((result) => {
+					    if (result.value)
+					    {
+						    var data = new FormData();
+
+						    data.append('Name', ElementIdName.val());
+						    data.append('StartDate', ElementIdStartDate.val());
+						    data.append('EndDate', ElementIdEndDate.val());
+						    data.append('Id', ElementIdId.val());
+
+						    $.ajax({
+						    type:'POST',
+						    url : '/fiscalyear/Update',
+						    contentType: false,
+						    processData: false,
+						    data:data,
+						    success: function(data)
+						    {
+							    if(data.isSuccess == true)
+							    {
+								    swal.fire
+								    (
+									     'موفق',
+									     data.message,
+									     'success'
+								    ).then(function(isConfirm)
+								    {
+								   	    window.location.replace("/fiscalyear");
+
+					                
+					                    ElementSaveAddBtn.prop('type', 'button');
+									    ElementDeleteBtn.prop('type', 'hidden');
+									    ElementSaveEditBtn.prop('type', 'hidden');
+								    });
+							    }
+							    else
+							    {
+								    swal.fire
+								    (
+									     'هشدار',
+									     data.message,
+									     'warning'
+								    );
+							    }
+						    },
+						    error: function(xhr, status, error)
+							       {
+							           alert("خطا رخ داد! لطفا یک بار دیگر با دقت فیلد هارا کامل بکنید ");
+							       }
+					    });
+					    }
+					    else
+					    {
+					        window.location.replace("/fiscalyear");
+
+					        ElementSaveAddBtn.prop('type', 'button');
+					        ElementDeleteBtn.prop('type', 'hidden');
+						    ElementSaveEditBtn.prop('type', 'hidden');
+					    }
+				    });
+				    }
+	        }
 
 		function Delete()
 		{

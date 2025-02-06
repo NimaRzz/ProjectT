@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Project.Application.Interfaces.FiscalYear;
-using Project.Domain.Common.Dto;
-using Project.Domain.Repository.FiscalYear;
-using FiscalYearModel = Project.Domain.Entities.FiscalYears.FiscalYear;
+using Project.Core.Common.Dto;
+using Project.Core.Repository.FiscalYear;
+using FiscalYearModel = Project.Core.Entities.FiscalYears.FiscalYear;
 
 namespace Project.Application.Services.FiscalYear.Commands.Delete
 {

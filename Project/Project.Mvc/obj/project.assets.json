@@ -1495,7 +1495,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
-          "Project.Domain": "1.0.0"
+          "Project.Core": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Project.Application.dll": {}
@@ -1504,14 +1504,14 @@
           "bin/placeholder/Project.Application.dll": {}
         }
       },
-      "Project.Domain/1.0.0": {
+      "Project.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "compile": {
-          "bin/placeholder/Project.Domain.dll": {}
+          "bin/placeholder/Project.Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Project.Domain.dll": {}
+          "bin/placeholder/Project.Core.dll": {}
         }
       },
       "Project.Infrastructure/1.0.0": {
@@ -1520,7 +1520,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "8.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0",
-          "Project.Domain": "1.0.0"
+          "Project.Core": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Project.Infrastructure.dll": {}
@@ -4093,10 +4093,10 @@
       "path": "../Project.Application/Project.Application.csproj",
       "msbuildProject": "../Project.Application/Project.Application.csproj"
     },
-    "Project.Domain/1.0.0": {
+    "Project.Core/1.0.0": {
       "type": "project",
-      "path": "../Project.Domain/Project.Domain.csproj",
-      "msbuildProject": "../Project.Domain/Project.Domain.csproj"
+      "path": "../Project.Core/Project.Core.csproj",
+      "msbuildProject": "../Project.Core/Project.Core.csproj"
     },
     "Project.Infrastructure/1.0.0": {
       "type": "project",
@@ -4121,11 +4121,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nima\\Desktop\\Project\\Project.Mvc\\Project.Mvc.csproj",
+      "projectUniqueName": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Mvc\\Project.Mvc.csproj",
       "projectName": "Project.Mvc",
-      "projectPath": "C:\\Users\\Nima\\Desktop\\Project\\Project.Mvc\\Project.Mvc.csproj",
+      "projectPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Mvc\\Project.Mvc.csproj",
       "packagesPath": "C:\\Users\\Nima\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nima\\Desktop\\Project\\Project.Mvc\\obj\\",
+      "outputPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Mvc\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4146,11 +4146,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Nima\\Desktop\\Project\\Project.Application\\Project.Application.csproj": {
-              "projectPath": "C:\\Users\\Nima\\Desktop\\Project\\Project.Application\\Project.Application.csproj"
+            "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Application\\Project.Application.csproj": {
+              "projectPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Application\\Project.Application.csproj"
             },
-            "C:\\Users\\Nima\\Desktop\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Nima\\Desktop\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj"
+            "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj"
             }
           }
         }
@@ -4212,5 +4212,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+    }
+  ]
 }

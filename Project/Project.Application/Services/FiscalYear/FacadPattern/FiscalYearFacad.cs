@@ -9,7 +9,7 @@ using Project.Application.Services.FiscalYear.Commands.Add;
 using Project.Application.Services.FiscalYear.Commands.Delete;
 using Project.Application.Services.FiscalYear.Commands.Update;
 using Project.Application.Services.FiscalYear.Queries.GetAll;
-using Project.Domain.Repository.FiscalYear;
+using Project.Core.Repository.FiscalYear;
 
 namespace Project.Application.Services.FiscalYear.FacadPattern
 {

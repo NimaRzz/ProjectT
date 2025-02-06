@@ -1,6 +1,6 @@
 ﻿using Project.Application.Interfaces.FacadPatterns;
 using Project.Application.Services.FiscalYear.FacadPattern;
-using Project.Domain.Repository.FiscalYear;
+using Project.Core.Repository.FiscalYear;
 using Project.Infrastructure.Contexts;
 using Project.Infrastructure.Repositories.FiscalYear;
 

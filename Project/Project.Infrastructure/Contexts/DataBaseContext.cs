@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Project.Domain.Entities.FiscalYears;
+using Project.Core.Entities.FiscalYears;
 
 namespace Project.Infrastructure.Contexts
 {

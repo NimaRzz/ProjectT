@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Project.Domain.Common.Dto;
-using Project.Domain.Repository.BaseRepository;
+using Project.Core.Common.Dto;
+using Project.Core.Repository.BaseRepository;
 using Project.Infrastructure.Contexts;
 
 namespace Project.Infrastructure.Repositories.BaseRepository
