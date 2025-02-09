@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Core\\Project.Core.csproj",
+      "projectUniqueName": "E:\\123\\ProjectT\\Project\\Project.Core\\Project.Core.csproj",
       "projectName": "Project.Core",
-      "projectPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Core\\Project.Core.csproj",
+      "projectPath": "E:\\123\\ProjectT\\Project\\Project.Core\\Project.Core.csproj",
       "packagesPath": "C:\\Users\\Nima\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Core\\obj\\",
+      "outputPath": "E:\\123\\ProjectT\\Project\\Project.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

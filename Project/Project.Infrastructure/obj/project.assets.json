@@ -4039,11 +4039,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj",
+      "projectUniqueName": "E:\\123\\ProjectT\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj",
       "projectName": "Project.Infrastructure",
-      "projectPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj",
+      "projectPath": "E:\\123\\ProjectT\\Project\\Project.Infrastructure\\Project.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Nima\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Infrastructure\\obj\\",
+      "outputPath": "E:\\123\\ProjectT\\Project\\Project.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4064,8 +4064,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Core\\Project.Core.csproj": {
-              "projectPath": "C:\\Users\\Nima\\Desktop\\ProjectT\\Project\\Project.Core\\Project.Core.csproj"
+            "E:\\123\\ProjectT\\Project\\Project.Core\\Project.Core.csproj": {
+              "projectPath": "E:\\123\\ProjectT\\Project\\Project.Core\\Project.Core.csproj"
             }
           }
         }
@@ -4126,13 +4126,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
-    }
-  ]
+  }
 }
